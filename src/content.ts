@@ -99,9 +99,3 @@ export const capture = {
   description:
     'A single frame that stood out today. Sometimes it is a street moment, sometimes a sunset, sometimes just good light doing its thing.',
 };
-
-export const sideStuff = {
-  signature: '(c) Maheer',
-  tagline: 'Built with care and curiosity',
-  todayLabel: 'Today: 14 January 2026',
-};

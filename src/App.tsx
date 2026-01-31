@@ -10,7 +10,7 @@ import {
   project,
   techStack,
 } from './content';
-import headshot from './assets/LinkedInHeadshotv2.JPG';
+import headshot from './assets/LinkedInHeadshotv2.png';
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -196,11 +196,15 @@ function App() {
                 </div>
                 <div className='stack-row'>
                   <p className='item-title'>Podcasts</p>
-                  <p className='stack-items'>{consuming.podcasts.join(' | ')}</p>
+                  <p className='stack-items'>
+                    {consuming.podcasts.join(' | ')}
+                  </p>
                 </div>
                 <div className='stack-row'>
                   <p className='item-title'>Articles and Blogs</p>
-                  <p className='stack-items'>{consuming.articles.join(' | ')}</p>
+                  <p className='stack-items'>
+                    {consuming.articles.join(' | ')}
+                  </p>
                 </div>
               </div>
             </section>
@@ -216,10 +220,10 @@ function App() {
               />{' '}
               {profile.name}
             </span>
-            <span aria-hidden='true'>|</span>
-            <span className='item-sub'>{dateLabel}</span>
-            <span aria-hidden='true'>|</span>
-            <span className='item-sub'>{timeLabel}</span>
+            <span className='footer-meta'>
+              <span className='item-sub footer-date'>{dateLabel}</span>
+              <span className='item-sub footer-time'>{timeLabel}</span>
+            </span>
           </p>
         </footer>
       </div>

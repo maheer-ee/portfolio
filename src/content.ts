@@ -3,7 +3,7 @@ export const profile = {
   role: 'hardware design / machine learning',
   intro: "hey, i'm Maheer!",
   outro:
-    'CS honors @ ASU. Into computer architecture, FPGAs, and making ML run efficiently.',
+    'CS honors @ ASU. into computer architecture, FPGAs, and making ML run efficiently.',
 };
 
 export const techStack = [
@@ -75,7 +75,7 @@ export const work = [
 
 export const education = {
   summary: 'ASU · Barrett · CS ’27',
-  gpa: '4.00 GPA through Spring 2026',
+  gpa: '4.00 GPA',
 };
 
 export const hobbies = {

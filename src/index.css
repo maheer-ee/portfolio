@@ -411,3 +411,70 @@ a {
     letter-spacing: 0.16em;
   }
 }
+
+/* Phones and tablets in portrait follow the device theme. */
+@media (max-width: 1366px) and (orientation: portrait) {
+  .app[data-theme] {
+    color-scheme: light;
+    --bg: #f6f6f4;
+    --fg: #151515;
+    --muted: #575757;
+    --card: #ffffff;
+    --card-border: #e5e5e5;
+    --accent: var(--color-hot-red);
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .headline-wrap {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .headline {
+    justify-items: center;
+  }
+
+  .toggle {
+    display: none;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+
+  .column {
+    display: contents;
+  }
+
+  .column > .card {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+
+  .card-intro { order: 1; }
+  .card-stack { order: 2; }
+  .card-research { order: 3; }
+  .card-projects { order: 4; }
+  .card-work { order: 5; }
+  .card-contact { order: 6; }
+}
+
+@media (max-width: 1366px) and (orientation: portrait) and (prefers-color-scheme: dark) {
+  .app[data-theme] {
+    color-scheme: dark;
+    --bg: #0f0f0f;
+    --fg: #f3f3f3;
+    --muted: #b2b2b2;
+    --card: #151515;
+    --card-border: #2a2a2a;
+    --accent: var(--color-lightgreen);
+  }
+}

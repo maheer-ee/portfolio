@@ -29,7 +29,7 @@ export default function Home() {
               className='headline-avatar'
             />
             <div className='headline'>
-              <p className='headline-name'>{profile.name}</p>
+              <h1 className='headline-name'>{profile.name}</h1>
               <p className='headline-role'>{profile.role}</p>
             </div>
           </div>

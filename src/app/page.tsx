@@ -1,5 +1,7 @@
-import { Copyright, Moon, Sun } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { Copyright } from 'lucide-react';
+import Image from 'next/image';
+import { ThemeShell, ThemeToggle } from '../components/theme';
+import Clock from '../components/clock';
 import {
   capture,
   contact,
@@ -9,48 +11,20 @@ import {
   profile,
   project,
   techStack,
-} from './content';
-import headshot from './assets/LinkedInHeadshotv2.png';
+} from '../content';
+import headshot from '../assets/LinkedInHeadshotv2.jpg';
 
-function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-  const [now, setNow] = useState(new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const dateLabel = useMemo(
-    () =>
-      new Intl.DateTimeFormat('en-US', {
-        weekday: 'short',
-        month: 'short',
-        day: '2-digit',
-        year: 'numeric',
-      }).format(now),
-    [now],
-  );
-
-  const timeLabel = useMemo(
-    () =>
-      new Intl.DateTimeFormat('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-      }).format(now),
-    [now],
-  );
-
+export default function Home() {
   return (
-    <main
-      className='app min-h-screen'
-      data-theme={theme}>
+    <ThemeShell>
       <div className='page'>
         <header className='mb-8 flex items-center justify-between'>
           <div className='headline-wrap'>
-            <img
+            <Image
               src={headshot}
+              width={72}
+              height={72}
+              priority
               alt={profile.name}
               className='headline-avatar'
             />
@@ -59,26 +33,7 @@ function App() {
               <p className='headline-role'>{profile.role}</p>
             </div>
           </div>
-          <button
-            type='button'
-            className='toggle'
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            aria-pressed={theme === 'dark'}
-            aria-label={
-              theme === 'light' ? 'Enable dark mode' : 'Enable light mode'
-            }>
-            {theme === 'dark' ? (
-              <Sun
-                size={20}
-                aria-hidden='true'
-              />
-            ) : (
-              <Moon
-                size={20}
-                aria-hidden='true'
-              />
-            )}
-          </button>
+          <ThemeToggle />
         </header>
 
         <div className='grid'>
@@ -184,7 +139,7 @@ function App() {
               <h2 className='card-title'>My Capture of the Day</h2>
               <p className='item-title'>{capture.title}</p>
               <p className='item-sub'>{capture.description}</p>
-              <p className='muted text-sm'>Date: {dateLabel}</p>
+              <p className='muted text-sm'>Date: <Clock mode="date" /></p>
             </section>
 
             <section className='card card-consuming'>
@@ -221,14 +176,11 @@ function App() {
               {profile.name}
             </span>
             <span className='footer-meta'>
-              <span className='item-sub footer-date'>{dateLabel}</span>
-              <span className='item-sub footer-time'>{timeLabel}</span>
+              <Clock mode="footer" />
             </span>
           </p>
         </footer>
       </div>
-    </main>
+    </ThemeShell>
   );
 }
-
-export default App;

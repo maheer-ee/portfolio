@@ -1,3 +1,3 @@
-# Portfolio
+# portfolio
 
-coming soon.
+my corner of the internet.

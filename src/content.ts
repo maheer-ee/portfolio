@@ -1,91 +1,86 @@
 export const profile = {
   name: 'Maheer Ashhab Naveen',
-  role: 'Software Engineer',
-  intro:
-    'Hey, I am Maheer, a CS honors student who enjoys turning ideas into clean, usable products. I like building things that feel simple on the surface but are thoughtfully engineered underneath. When I am not coding, you will probably find me behind a camera, on a soccer pitch, or deep into a competitive FIFA match.',
+  role: 'hardware design / machine learning',
+  intro: "hey, i'm Maheer!",
   outro:
-    'I am driven by curiosity, consistency, and the satisfaction of shipping something that actually helps people.',
+    'CS honors @ ASU. Into computer architecture, FPGAs, and making ML run efficiently.',
 };
 
 export const techStack = [
   {
-    label: 'Languages',
-    items: ['Python', 'Java', 'C/C++', 'JavaScript', 'SQL'],
-  },
-  {
-    label: 'Web and App',
+    label: 'hardware',
     items: [
-      'React',
-      'Next.js',
-      'Node.js',
-      'Express',
-      'HTML',
-      'CSS',
-      'Tailwind',
+      'Verilog',
+      'SystemVerilog',
+      'Vivado',
+      'VCS',
+      'Verdi',
+      'Design Compiler',
     ],
   },
   {
-    label: 'Systems and Hardware',
-    items: ['Verilog', 'Digital Logic Design', 'FPGA Concepts'],
+    label: 'ML & data',
+    items: ['PyTorch', 'Python', 'MATLAB', 'telemetry analysis'],
   },
   {
-    label: 'Data and Tools',
-    items: ['Git', 'GitHub', 'Linux', 'VS Code', 'Figma', 'Postman'],
+    label: 'software',
+    items: ['C++', 'Java', 'TypeScript', 'React', 'Spring Boot', 'PostgreSQL'],
   },
   {
-    label: 'Foundations',
-    items: [
-      'Data Structures',
-      'Algorithms',
-      'Probability and Statistics',
-      'Cybersecurity Basics',
-    ],
+    label: 'tools',
+    items: ['Tcl/Tk', 'Git', 'Linux'],
   },
 ];
 
-export const project = {
-  name: 'turFinder',
+export const research = {
+  hook: 'safer roads, simulated.',
+  role: 'Barrett Research Fellow',
   summary:
-    'A platform designed to simplify discovering and comparing opportunities tailored to student needs. Built with scalability and usability in mind, turFinder focuses on clear filtering, fast search, and intuitive navigation.',
-  work: [
-    'Product ideation and technical architecture',
-    'Frontend development and UI logic',
-    'Backend APIs and data handling',
-    'Iterative improvements based on feedback',
-  ],
-  takeaway:
-    'This project helped me understand how engineering decisions directly impact user experience.',
+    '13+ driving-simulator environments · Tcl automation & driver telemetry',
 };
+
+export const projects = [
+  {
+    name: 'hardware',
+    hook: 'small circuits. bigger ideas.',
+    summary:
+      'Verilog/SystemVerilog · MIPS processors · FPGA systems · systolic arrays',
+  },
+  {
+    name: 'turFinder',
+    hook: 'less group-chat chaos. more game time.',
+    summary: 'Co-founded a sports booking platform.',
+    detail: 'React · Spring Boot · PostgreSQL',
+  },
+  {
+    name: 'Clear Impression',
+    hook: 'less admin. more getting things done.',
+    summary: 'Building an operations platform for my senior capstone.',
+    detail: 'In progress.',
+  },
+];
+
+export const work = [
+  {
+    role: 'Subject Area Tutor @ ASU',
+    hook: 'debugging makes more sense together.',
+    summary: 'Helped 300+ students with programming and algorithms.',
+  },
+  {
+    role: 'Entrepreneurship & Innovation Grader @ ASU',
+    hook: 'ideas meet a second pair of eyes.',
+    summary: 'Feedback on venture ideas and student deliverables.',
+  },
+];
 
 export const education = {
-  school: 'Arizona State University',
-  degree: 'Bachelor of Science in Computer Science',
-  honors: 'Barrett, The Honors College',
-  coursework: [
-    'Data Structures and Algorithms',
-    'Digital Hardware Design',
-    'Probability and Statistics',
-    'Cybersecurity',
-    'Software Engineering Foundations',
-  ],
-  graduation: 'Expected Graduation: Spring 2027',
-};
-
-export const consuming = {
-  books: ['Atomic Habits', 'Deep Work', 'The Design of Everyday Things'],
-  podcasts: ['Lex Fridman Podcast', 'The Diary of a CEO', 'Founders Podcast'],
-  articles: [
-    'Engineering blogs',
-    'Product and startup case studies',
-    'UX and system design write-ups',
-  ],
+  summary: 'ASU · Barrett · CS ’27',
+  gpa: '4.00 GPA through Spring 2026',
 };
 
 export const hobbies = {
-  photography:
-    'Event coverage, portraits, campus shoots, and creative experiments. I enjoy capturing moments that feel natural and unscripted, with a focus on lighting and composition.',
-  gaming:
-    'FIFA, Rocket League, Valorant. Competitive, strategic, and team-oriented. Gaming has quietly improved how I think about decision-making and adaptability.',
+  hook: 'off the clock.',
+  summary: 'Camera in hand. Soccer on the field. One more FIFA match.',
 };
 
 export const contact = [
@@ -93,9 +88,3 @@ export const contact = [
   { label: 'LinkedIn', value: 'linkedin.com/in/maheer-ee' },
   { label: 'GitHub', value: 'github.com/maheer-ee' },
 ];
-
-export const capture = {
-  title: 'Capture of the Day',
-  description:
-    'A single frame that stood out today. Sometimes it is a street moment, sometimes a sunset, sometimes just good light doing its thing.',
-};

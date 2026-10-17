@@ -3,13 +3,13 @@ import Image from 'next/image';
 import { ThemeShell, ThemeToggle } from '../components/theme';
 import Clock from '../components/clock';
 import {
-  capture,
   contact,
-  consuming,
   education,
   hobbies,
   profile,
-  project,
+  projects,
+  research,
+  work,
   techStack,
 } from '../content';
 import headshot from '../assets/LinkedInHeadshotv2.jpg';
@@ -39,52 +39,46 @@ export default function Home() {
         <div className='grid'>
           <div className='column'>
             <section className='card card-intro'>
-              <h2 className='card-title'>Fun Personal Intro</h2>
-              <p className='text-base'>{profile.intro}</p>
-              <p className='muted text-base'>{profile.outro}</p>
+              <h2 className='card-title'>intro</h2>
+              <div className='card-entries'>
+                <div className='card-entry'>
+                  <h3 className='item-title'>{profile.intro}</h3>
+                  <p className='item-sub'>{profile.outro}</p>
+                </div>
+                <div className='card-entry'>
+                  <h3 className='item-title'>{education.summary}</h3>
+                  <p className='item-sub'>{education.gpa}</p>
+                </div>
+                <div className='card-entry'>
+                  <h3 className='item-title'>{hobbies.hook}</h3>
+                  <p className='item-sub'>{hobbies.summary}</p>
+                </div>
+              </div>
             </section>
 
             <section className='card card-stack'>
-              <h2 className='card-title'>Tech Stack</h2>
+              <h2 className='card-title'>tech stack</h2>
               <div className='stack'>
                 {techStack.map((group) => (
                   <div
                     className='stack-row'
                     key={group.label}>
                     <p className='item-title'>{group.label}</p>
-                    <p className='stack-items'>{group.items.join(' | ')}</p>
+                    <p className='stack-items'>{group.items.join(' · ')}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section className='card card-hobbies'>
-              <h2 className='card-title'>Hobby Corner</h2>
-              <div className='stack'>
-                <div className='stack-row'>
-                  <p className='item-title'>Photography</p>
-                  <p className='item-sub'>{hobbies.photography}</p>
-                </div>
-                <div className='stack-row'>
-                  <p className='item-title'>Gaming</p>
-                  <p className='item-sub'>{hobbies.gaming}</p>
-                </div>
-              </div>
-            </section>
-
             <section className='card card-contact'>
-              <h2 className='card-title'>Contact</h2>
+              <h2 className='card-title'>building something interesting?</h2>
+              <p className='item-title'>Let&apos;s talk.</p>
               <div className='list'>
                 {contact.map((item) => {
-                  const label = item.label.toLowerCase();
-                  const raw = item.value;
-                  let href = raw;
-
-                  if (label.includes('email')) {
-                    href = `mailto:${raw}`;
-                  } else if (!raw.startsWith('http')) {
-                    href = `https://${raw}`;
-                  }
+                  const href =
+                    item.label === 'Email'
+                      ? `mailto:${item.value}`
+                      : `https://${item.value}`;
 
                   return (
                     <div
@@ -104,63 +98,47 @@ export default function Home() {
                   );
                 })}
               </div>
-              <p className='muted text-sm'>
-                Always open to collaborations, internships, and interesting
-                conversations.
-              </p>
             </section>
           </div>
 
           <div className='column'>
-            <section className='card card-project'>
-              <h2 className='card-title'>Projects / Startup</h2>
-              <p className='item-title'>{project.name}</p>
-              <p className='item-sub'>{project.summary}</p>
-              <p className='muted text-sm'>What I worked on</p>
-              <ul className='bullets'>
-                {project.work.map((item) => (
-                  <li key={item}>{item}</li>
+            <section className='card card-research'>
+              <h2 className='card-title'>research</h2>
+              <p className='item-title'>{research.hook}</p>
+              <p className='item-sub'>{research.role}</p>
+              <p className='item-sub'>{research.summary}</p>
+            </section>
+
+            <section className='card card-projects'>
+              <h2 className='card-title'>projects</h2>
+              <div className='card-entries'>
+                {projects.map((project) => (
+                  <article
+                    className='card-entry'
+                    key={project.name}>
+                    <h3 className='item-title'>{project.name}</h3>
+                    <p className='item-sub'>{project.hook}</p>
+                    <p className='item-sub'>{project.summary}</p>
+                    {project.detail && (
+                      <p className='muted text-sm'>{project.detail}</p>
+                    )}
+                  </article>
                 ))}
-              </ul>
-              <p className='muted text-sm'>{project.takeaway}</p>
+              </div>
             </section>
 
-            <section className='card card-education'>
-              <h2 className='card-title'>Education</h2>
-              <p className='item-title'>{education.school}</p>
-              <p className='item-sub'>{education.degree}</p>
-              <p className='item-sub'>{education.honors}</p>
-              <p className='muted text-sm'>Relevant Coursework</p>
-              <p className='item-sub'>{education.coursework.join(' | ')}</p>
-              <p className='muted text-sm'>{education.graduation}</p>
-            </section>
-
-            <section className='card card-capture'>
-              <h2 className='card-title'>My Capture of the Day</h2>
-              <p className='item-title'>{capture.title}</p>
-              <p className='item-sub'>{capture.description}</p>
-              <p className='muted text-sm'>Date: <Clock mode="date" /></p>
-            </section>
-
-            <section className='card card-consuming'>
-              <h2 className='card-title'>Content Consumed</h2>
-              <div className='stack'>
-                <div className='stack-row'>
-                  <p className='item-title'>Books</p>
-                  <p className='stack-items'>{consuming.books.join(' | ')}</p>
-                </div>
-                <div className='stack-row'>
-                  <p className='item-title'>Podcasts</p>
-                  <p className='stack-items'>
-                    {consuming.podcasts.join(' | ')}
-                  </p>
-                </div>
-                <div className='stack-row'>
-                  <p className='item-title'>Articles and Blogs</p>
-                  <p className='stack-items'>
-                    {consuming.articles.join(' | ')}
-                  </p>
-                </div>
+            <section className='card card-work'>
+              <h2 className='card-title'>work</h2>
+              <div className='card-entries'>
+                {work.map((job) => (
+                  <article
+                    className='card-entry'
+                    key={job.role}>
+                    <h3 className='item-title'>{job.role}</h3>
+                    <p className='item-sub'>{job.hook}</p>
+                    <p className='item-sub'>{job.summary}</p>
+                  </article>
+                ))}
               </div>
             </section>
           </div>
@@ -176,7 +154,7 @@ export default function Home() {
               {profile.name}
             </span>
             <span className='footer-meta'>
-              <Clock mode="footer" />
+              <Clock mode='footer' />
             </span>
           </p>
         </footer>

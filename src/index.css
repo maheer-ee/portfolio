@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@500;600&display=swap');
-@import "tailwindcss";
+@import 'tailwindcss';
 
 * {
   box-sizing: border-box;
@@ -91,7 +91,7 @@ a {
   display: flex;
   gap: 16px;
   margin-top: 40px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .column {
@@ -109,8 +109,20 @@ a {
   padding: 24px;
 }
 
+@media (min-width: 901px) {
+  .column > .card {
+    flex: 1 0 auto;
+  }
+}
+
 .card > * + * {
   margin-top: 12px;
+}
+
+.card-entry + .card-entry {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--card-border);
 }
 
 .card .text-base {
@@ -184,9 +196,13 @@ a {
 
 .list-item {
   display: grid;
-  grid-template-columns: 64px 1fr;
+  grid-template-columns: 64px minmax(0, 1fr);
   gap: 12px;
-  align-items: start;
+  align-items: center;
+}
+
+.list-item > div {
+  min-width: 0;
 }
 
 .stack {
@@ -234,7 +250,7 @@ a {
   cursor: pointer;
   overflow-wrap: anywhere;
   word-break: break-word;
-  display: inline-block;
+  display: block;
 }
 
 .link:hover {
@@ -307,7 +323,7 @@ a {
   }
 
   .list-item {
-    grid-template-columns: 56px 1fr;
+    grid-template-columns: 56px minmax(0, 1fr);
   }
 
   .footer {
@@ -350,11 +366,6 @@ a {
   .card {
     flex-basis: 100%;
     padding: 20px;
-  }
-
-  .list-item {
-    grid-template-columns: 1fr;
-    gap: 6px;
   }
 
   .toggle {

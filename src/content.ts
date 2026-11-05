@@ -32,12 +32,23 @@ export const techStack = [
   },
 ];
 
-export const research = {
-  hook: 'safer roads, simulated.',
-  role: 'Barrett Research Fellow',
-  summary:
-    '13+ driving-simulator environments · Tcl automation & driver telemetry',
-};
+export const research = [
+  {
+    title: 'Privacy-Preserving Personalized Sound Recognition Using TinyML',
+    hook: 'Doorbells, alarms, and knocks, recognized on-device.',
+    summary: 'Honors thesis · Research and planning in progress.',
+  },
+  {
+    title: 'Barrett Research Fellow',
+    hook: 'safer roads, simulated.',
+    summary: '13+ driving-simulator environments · Tcl automation & driver telemetry',
+  },
+  {
+    title: 'LLM-Guided Tuning for Physics-Informed Neural Networks',
+    hook: 'Using training feedback to tune models with less manual trial and error.',
+    summary: 'Fulton Undergraduate Research Initiative · Planned for Spring 2027.',
+  },
+];
 
 export const projects = [
   {
@@ -45,6 +56,7 @@ export const projects = [
     hook: 'small circuits. bigger ideas.',
     summary:
       'Verilog/SystemVerilog · MIPS processors · FPGA systems · systolic arrays',
+    detail: 'CSE598 labs in progress include SystemVerilog FIFO verification and an APB systolic multiplier.',
   },
   {
     name: 'turFinder',
@@ -55,8 +67,8 @@ export const projects = [
   {
     name: 'Clear Impression',
     hook: 'less admin. more getting things done.',
-    summary: 'Building an operations platform for my senior capstone.',
-    detail: 'In progress.',
+    summary: 'Building scheduling and service tracking for my senior capstone.',
+    detail: 'In progress · React, TypeScript, Tailwind CSS, FastAPI, and Sanity CMS.',
   },
 ];
 
@@ -69,7 +81,7 @@ export const work = [
   {
     role: 'Entrepreneurship & Innovation Grader @ ASU',
     hook: 'ideas meet a second pair of eyes.',
-    summary: 'Feedback on venture ideas and student deliverables.',
+    summary: 'Gave feedback to 50+ students and graded up to 200 deliverables a week.',
   },
 ];
 

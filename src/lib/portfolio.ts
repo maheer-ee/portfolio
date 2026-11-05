@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import { projects, research, work } from '../content';
+import { projects, work } from '../content';
 import { site } from './site';
 
 export const sections = [
-  { slug: 'research', title: 'Research', description: research.summary },
+  { slug: 'research', title: 'Research', description: 'TinyML sound recognition, driving-simulator research, and planned LLM-guided PINN tuning.' },
   { slug: 'projects', title: 'Projects', description: 'Hardware design, sports booking, and capstone work.' },
   { slug: 'work', title: 'Work', description: work.map(item => item.role).join(' · ') },
   { slug: 'contact', title: 'Contact', description: 'Reach Maheer Ashhab Naveen by email, LinkedIn, or GitHub.' },

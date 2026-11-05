@@ -23,13 +23,13 @@ export default async function SectionPage({ params }: Props) {
   return (
     <section className="detail-view">
       <h1>{title}</h1>
-      {slug === 'research' && (
-        <article className="entry">
-          <h2>{research.role}</h2>
-          <p>{research.hook}</p>
-          <p>{research.summary}</p>
+      {slug === 'research' && research.map(item => (
+        <article className="entry" key={item.title}>
+          <h2>{item.title}</h2>
+          <p>{item.hook}</p>
+          <p>{item.summary}</p>
         </article>
-      )}
+      ))}
       {slug === 'projects' && projectEntries.map(project => (
         <Link className="entry entry-link" key={project.slug} href={'/projects/' + project.slug}>
           <div><h2>{project.title}</h2><p>{project.summary}</p></div>

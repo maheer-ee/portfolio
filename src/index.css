@@ -33,7 +33,14 @@ h1 { font-weight: 690; font-size: clamp(2.4rem, 5.4vw, 5rem); line-height: 1.03;
 .home-name > span:last-child { font-size: .65em; margin-top: .13em; }
 .role { color: var(--accent); font-weight: 650; margin-top: .8rem; }
 .intro-copy { margin: 1.15rem auto 0; max-width: 40ch; line-height: 1.6; }
-.education, .personal { color: var(--muted); font-size: .9rem; margin-top: .48rem; line-height: 1.45; }
+.education { color: var(--muted); font-size: .9rem; margin-top: .48rem; line-height: 1.45; }
+.hobby-icons {
+  display: flex;
+  justify-content: center;
+  gap: .85rem;
+  margin-top: .75rem;
+  color: var(--muted);
+}
 .primary-link, .text-link { display: inline-flex; align-items: center; gap: .55rem; font-weight: 650; }
 .primary-link { background: var(--accent); color: var(--canvas); border-radius: 999px; padding: .7rem 1rem; margin-top: 1.2rem; }
 .primary-link:hover { filter: brightness(.9); }
@@ -79,7 +86,7 @@ h2 { font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.2; font-weight: 660; 
 .stage-content { min-width: 0; }
 @media (prefers-reduced-motion: no-preference) {
   .app { transition: background-color 200ms ease, color 200ms ease; }
-  .role, .entry p, .education, .personal, .text-link, .entry-link svg { transition: color 200ms ease; }
+  .role, .entry p, .education, .text-link, .entry-link svg { transition: color 200ms ease; }
   .primary-link { transition: background-color 200ms ease, color 200ms ease, scale 140ms ease; }
   .primary-link:active { scale: .97; }
   .dock-link { transition: color 160ms ease, background-color 160ms ease; }
@@ -120,6 +127,5 @@ h2 { font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.2; font-weight: 660; 
 .home-name > span:first-child { font-size: 1.2em; }
 .home-name > span:last-child { font-size: .65em; margin-top: .13em; }
 .role { margin-top: .48rem; }
-  .personal { font-size: .83rem; }
   .primary-link { margin-top: .75rem; }
 }

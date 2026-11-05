@@ -90,11 +90,6 @@ export const education = {
   gpa: '4.00 GPA',
 };
 
-export const hobbies = {
-  hook: 'off the clock.',
-  summary: 'Camera in hand. Soccer on the field. One more FIFA match.',
-};
-
 export const contact = [
   { label: 'Email', value: 'maheer.a.naveen@gmail.com' },
   { label: 'LinkedIn', value: 'linkedin.com/in/maheer-ee' },

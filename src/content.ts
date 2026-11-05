@@ -3,7 +3,7 @@ export const profile = {
   role: 'hardware design / machine learning',
   intro: "hey, i'm Maheer!",
   outro:
-    'CS honors @ ASU. into computer architecture, FPGAs, and making ML run efficiently.',
+    'CS honors @ ASU. into hardware design, FPGAs, and making ML run efficiently.',
 };
 
 export const techStack = [

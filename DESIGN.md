@@ -52,7 +52,7 @@ The shell is capped at 72rem. Home uses a single centered column. Content flows 
 
 ## Elevation & Depth
 
-The forest dock uses a soft shadow. Secondary views use simple separators.
+The forest dock uses a soft shadow. Secondary views separate entries with spacing.
 
 ## Components
 

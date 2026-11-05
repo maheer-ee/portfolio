@@ -1,15 +1,18 @@
 @import 'tailwindcss';
 
+:root { --canvas: #141718; background: var(--canvas); }
+:root:where(:has(.app[data-theme='light'])) { --canvas: #faf6ee; }
+
 * { box-sizing: border-box; }
 body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; }
 a { color: inherit; text-decoration: none; }
 .app {
-  --canvas: #141718; --ink: #faf6ee; --muted: #aeb9b7; --accent: #e9d8bc;
+  --ink: #faf6ee; --muted: #aeb9b7; --accent: #e9d8bc;
   --line: #3a4644; --panel: #1c2322; --active: #214e34;
   min-height: 100dvh; background: var(--canvas); color: var(--ink); color-scheme: dark;
 }
 .app[data-theme='light'] {
-  --canvas: #faf6ee; --ink: #182323; --muted: #4b605c; --accent: #214e34;
+  --ink: #182323; --muted: #4b605c; --accent: #214e34;
   --line: #becac1; --panel: #e6ede2; --active: #f0e5d4;
   color-scheme: light;
 }
@@ -38,13 +41,18 @@ h1 { font-weight: 690; font-size: clamp(2.4rem, 5.4vw, 5rem); line-height: 1.03;
 .text-link:hover { text-decoration: underline; text-underline-offset: .22em; }
 h2 { font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.2; font-weight: 660; letter-spacing: -.015em; }
 .entry p { color: var(--muted); margin-top: .45rem; line-height: 1.5; overflow-wrap: anywhere; }
-.detail-view { width: min(100%, 47rem); margin-inline: auto; }
-.detail-view h1 { margin-bottom: 1.1rem; }
+.detail-view { width: min(100%, 47rem); margin-inline: auto; text-align: center; }
+.detail-view > h1 { margin-bottom: 1.1rem; }
 .detail-view > .text-link { margin-bottom: 1rem; }
-.entry { border-top: 1px solid var(--line); padding: clamp(.8rem, 2.5vh, 1.3rem) 0; }
-.entry:last-child { border-bottom: 1px solid var(--line); }
-.entry-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.entry-link svg { flex: none; color: var(--accent); }
+.entry { padding: clamp(.8rem, 2.5vh, 1.3rem) 0; }
+.entry-link {
+  display: grid;
+  grid-template-columns: minmax(20px, 1fr) minmax(0, auto) minmax(20px, 1fr);
+  align-items: center;
+  column-gap: .75rem;
+}
+.entry-link > div { grid-column: 2; }
+.entry-link svg { grid-column: 3; color: var(--accent); }
 .entry-link:hover h2 { color: var(--accent); }
 .dock {
   position: sticky; bottom: max(.65rem, env(safe-area-inset-bottom)); z-index: 1; justify-self: center;
@@ -62,7 +70,20 @@ h2 { font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.2; font-weight: 660; 
 }
 .toggle { cursor: pointer; }
 .dock-link:hover { background: #306747; }
-.dock-link[aria-current] { background: #e9d8bc; color: #163b29; }
+.dock-link[aria-current] { color: #163b29; }
+.dock-indicator { position: absolute; inset: 0; border-radius: 50%; background: #e9d8bc; pointer-events: none; }
+.dock-link > svg { position: relative; z-index: 1; }
+.dock-tooltip { z-index: 2; }
+.theme-icons { display: grid; }
+.theme-icons > span { grid-area: 1 / 1; }
+.stage-content { min-width: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .app { transition: background-color 200ms ease, color 200ms ease; }
+  .role, .entry p, .education, .personal, .text-link, .entry-link svg { transition: color 200ms ease; }
+  .primary-link { transition: background-color 200ms ease, color 200ms ease, scale 140ms ease; }
+  .primary-link:active { scale: .97; }
+  .dock-link { transition: color 160ms ease, background-color 160ms ease; }
+}
 .dock-link:focus-visible { outline-color: #e9d8bc; }
 .dock-tooltip {
   position: absolute; left: 50%; bottom: calc(100% + .6rem); transform: translateX(-50%);
@@ -77,15 +98,17 @@ h2 { font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.2; font-weight: 660; 
 .skip { position: fixed; top: .5rem; left: .5rem; z-index: 3; transform: translateY(-200%); background: var(--canvas); padding: .6rem; }
 .skip:focus { transform: none; }
 @media (max-width: 1366px) and (orientation: portrait) {
+  :root { --canvas: #faf6ee; }
   .dock-utility { display: none; }
   .app[data-theme] {
-    --canvas: #faf6ee; --ink: #182323; --muted: #4b605c; --accent: #214e34;
+    --ink: #182323; --muted: #4b605c; --accent: #214e34;
     --line: #becac1; --panel: #e6ede2; --active: #f0e5d4; color-scheme: light;
   }
 }
 @media (max-width: 1366px) and (orientation: portrait) and (prefers-color-scheme: dark) {
+  :root { --canvas: #141718; }
   .app[data-theme] {
-    --canvas: #141718; --ink: #faf6ee; --muted: #aeb9b7; --accent: #e9d8bc;
+    --ink: #faf6ee; --muted: #aeb9b7; --accent: #e9d8bc;
     --line: #3a4644; --panel: #1c2322; --active: #214e34; color-scheme: dark;
   }
 }

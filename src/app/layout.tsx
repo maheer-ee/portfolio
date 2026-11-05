@@ -1,10 +1,18 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { profile } from '../content';
 import { site } from '../lib/site';
 import Dock from '../components/dock';
+import { PageStage } from '../components/page-stage';
 import { ThemeShell } from '../components/theme';
 import '../index.css';
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(max-width: 1366px) and (orientation: portrait) and (prefers-color-scheme: dark)', color: '#141718' },
+    { media: '(max-width: 1366px) and (orientation: portrait)', color: '#faf6ee' },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -33,7 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ThemeShell>
           <div className="portfolio-shell">
             <a href="#content" className="skip">Skip to content</a>
-            <main id="content" className="stage" tabIndex={-1}>{children}</main>
+            <PageStage>{children}</PageStage>
             <Dock />
           </div>
         </ThemeShell>

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T12:37:36.115Z",
+  "title": "Design System: Maheer Ashhab Naveen Portfolio",
+  "extensions": {
+    "shadows": [
+      {
+        "name": "dock",
+        "value": "0 6px 25px #0003",
+        "purpose": "Separate the dock from the canvas."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack-home",
+        "value": "680px"
+      }
+    ]
+  },
+  "narrative": {
+    "northStar": "Introduction first, evidence one click away",
+    "overview": "Keep the portfolio content in the foreground, with a persistent icon dock with accessible labels.",
+    "keyCharacteristics": [
+      "Forest pill with beige active circle",
+      "Graphite and warm white themes",
+      "Editorial list views"
+    ],
+    "rules": [
+      {
+        "name": "Label every icon",
+        "body": "Each icon has an accessible name and a tooltip on hover and keyboard focus.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Allow natural overflow on constrained viewports."
+    ],
+    "donts": [
+      "Do not rely on magnification or icons to indicate destinations."
+    ]
+  }
+}
